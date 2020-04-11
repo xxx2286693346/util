@@ -31,6 +31,24 @@ public class StringUtilTest {
 		String string = StringUtil.generateChineseName();
 		System.out.println(string);
 	}
+	
+	@Test
+	public void gitEmail() {
+		boolean gitEmail = StringUtil.gitEmail("2286693346@qq.com");
+		System.out.println(gitEmail);
+	}
+	
+	@Test
+	public void gitPhone() {
+		boolean gitPhone = StringUtil.gitPhone("15679416381");
+		System.out.println(gitPhone);
+	}
+	
+	@Test
+	public void gitNumber() {
+		boolean gitPhone = StringUtil.gitNumber("1.12");
+		System.out.println(gitPhone);
+	}
 			
 
 }

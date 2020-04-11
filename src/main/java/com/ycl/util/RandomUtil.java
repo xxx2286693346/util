@@ -50,6 +50,19 @@ public class RandomUtil {
 		return str.charAt(random(0, str.length()-1));
 	//TODO 实现代码
 	}
+	
+	//返回一个1-9之间的传入多少生成多少个随机数
+	public static String randomNumber(int length){
+		String str = "1234567890";
+		String result="";
+		for (int i = 0; i <length; i++) {
+			result+= str.charAt(random(0, str.length()-1));
+		}
+		return result;
+	//TODO 实现代码
+	}
+	
+	
 	//方法4：返回参数length个字符串(5分)，方法内部要调用randomCharacter()方法 (4分)
 	public static String randomString(int length){
 		StringBuffer str =  new StringBuffer();

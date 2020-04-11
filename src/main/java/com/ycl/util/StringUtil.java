@@ -1,7 +1,10 @@
 package com.ycl.util;
 
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
 import java.util.Random;
+import java.util.regex.Pattern;
 
 public class StringUtil {
 	/**
@@ -64,5 +67,45 @@ public class StringUtil {
 			String name2 =randomChineseString(RandomUtil.random(1, 2));
 				
 				return name1 +name2 ;
-			}	
+	}	
+	//方法5: 判断是否是邮箱格式
+	public static boolean gitEmail(String string) {
+		//String email="^[a-z0-9A-Z]+@([0-9a-zA-Z]+)(\\.([a-zA-Z]{2,}))";
+		String email="^[a-zA-Z0-9_\\-\\.]+@(sina|qq|163)+(\\.(com|cn|org|edu|hk))$";
+		boolean matches = Pattern.matches(email, string);
+		return matches;
+	}
+	
+	//方法6: 判断是否是手机号
+	public static boolean gitPhone(String string) {
+		String phone="^[1][3,4,5,7,8][0-9]{9}$";
+		boolean matches = Pattern.matches(phone, string);
+		return matches;
+	}
+	
+	
+	//方法6: 判断是否是数字类型,包含  正数,负数  小数
+	public static boolean gitNumber(String string) {
+			String number="(-?\\d+)(\\.\\d+)?";
+		boolean matches = Pattern.matches(number, string);
+		return matches;
+	}
+	
+	
+	/**
+	 * 功能说明：实现判断传入的字符串是否为包含http的url地址
+	 */
+	public static boolean isHttpUrl(String src){
+		//TODO 实现判断传入的字符串是否为以http打头的url地址
+		try {
+			URL url = new URL(src);
+			url.openStream();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("不是合法的url");
+		return false;
+		
+	}
 }
